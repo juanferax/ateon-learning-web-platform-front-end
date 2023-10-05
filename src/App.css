@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.poppins {
+  font-family: "Poppins";
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  font-family: "Poppins";
   text-align: center;
 }
 
