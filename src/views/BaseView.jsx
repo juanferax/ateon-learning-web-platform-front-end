@@ -1,13 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
+import HomePage from "../pages/HomePage";
 
 function BaseView() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
-      <div className="text-xl">
-        <h1>Hello world!</h1>
-      </div>
+      <HomePage />
     </div>
   );
 }

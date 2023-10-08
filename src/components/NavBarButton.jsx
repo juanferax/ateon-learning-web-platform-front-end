@@ -4,14 +4,14 @@ function NavBarButton({ section, icon: Icon }) {
   return (
     <div className="relative group/button">
       <div
-        className="flex items-center justify-center rounded-lg group-hover/button:bg-secondaries-4 h-12"
-        style={{ width: 152 }}
+        className="flex items-center justify-center rounded-lg group-hover/button:bg-[#DFF1FF] h-12"
+        style={{ width: 180 }}
       >
         <Icon fill="#6652FA" className="pr-2" />
-        <p className="font-medium text-primaries-2">{section}</p>
+        <p className="font-medium text-[#6652FA]">{section}</p>
       </div>
       <div
-        className="absolute group-hover/button:bg-primaries-2 mt-2 w-full rounded-lg"
+        className="absolute group-hover/button:bg-[#6652FA] mt-2 w-full rounded-lg"
         style={{ height: 6 }}
       ></div>
     </div>
