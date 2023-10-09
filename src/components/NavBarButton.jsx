@@ -5,7 +5,7 @@ function NavBarButton({ section, icon: Icon }) {
     <div className="relative group/button">
       <div
         className="flex items-center justify-center rounded-lg group-hover/button:bg-[#DFF1FF] h-12"
-        style={{ width: 180 }}
+        style={{ width: 150 }}
       >
         <Icon fill="#6652FA" className="pr-2" />
         <p className="font-medium text-[#6652FA]">{section}</p>

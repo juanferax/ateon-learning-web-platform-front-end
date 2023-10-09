@@ -4,7 +4,7 @@ import HomePage from "../pages/HomePage";
 
 function BaseView() {
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col h-screen">
       <Header />
       <HomePage />
     </div>

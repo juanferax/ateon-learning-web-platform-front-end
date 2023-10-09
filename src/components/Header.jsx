@@ -12,9 +12,9 @@ import NavBarButton from "./NavBarButton";
 
 function Header() {
   return (
-    <div className="z-50 sticky top-0 w-full h-24 flex items-center justify-between px-7 mb-10">
+    <div className="z-50 sticky top-0 w-full h-24 flex items-center justify-between px-7 mb-3">
       {/* Logo */}
-      <div className="flex items-center">
+      <div className="flex items-center pb-[14px]">
         <img src={ateonLogo} className="h-12 pr-3" alt="Logo Ateon" />
         <img src={ateonText} className="h-6" alt="Ateon" />
       </div>
@@ -32,7 +32,7 @@ function Header() {
         ></div>
       </div>
       {/* Profile */}
-      <div className="flex items-center">
+      <div className="flex items-center pb-[14px]">
         <NotificationIcon fill="#6652FA" />
         <div
           className="circle-image ml-8 mr-3"
@@ -41,8 +41,8 @@ function Header() {
             backgroundSize: "cover",
             backgroundPosition: "center center",
             borderRadius: "50%",
-            height: 46,
-            width: 46,
+            height: 38,
+            width: 38,
           }}
         ></div>
         <p className="pr-5 text-[#162A6E] font-semibold">John Doe.</p>
