@@ -12,7 +12,7 @@ import NavBarButton from "./NavBarButton";
 
 function Header() {
   return (
-    <div className="z-50 sticky top-0 w-full h-24 flex items-center justify-between px-7 mb-3">
+    <div className="z-50 sticky top-0 w-full h-24 flex items-center justify-between px-7 mb-3 bg-white py-3">
       {/* Logo */}
       <div className="flex items-center pb-[14px]">
         <img src={ateonLogo} className="h-12 pr-3" alt="Logo Ateon" />
