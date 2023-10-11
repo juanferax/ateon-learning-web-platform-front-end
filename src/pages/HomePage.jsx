@@ -9,6 +9,8 @@ import ChatIcon from "../assets/images/icons/icon_chats.svg?react";
 import CoursesIcon from "../assets/images/icons/icon_courses.svg?react";
 import ScheduleIcon from "../assets/images/icons/icon_schedule.svg?react";
 
+import Button from '@mui/material/Button';
+
 function HomePage() {
   return (
     <div className="flex flex-row h-full mb-3">
@@ -92,6 +94,7 @@ function HomePage() {
           <div className="flex justify-center">
             {/* TODO: Calendar */}
             <img src={calendar} alt="" style={{ height: 200 }} />
+            <Button variant="contained"> Contained</Button>
           </div>
           <hr className="my-5 border-[#0528F2] border-opacity-50" />
           {/* Notes */}
