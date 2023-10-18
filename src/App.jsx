@@ -1,10 +1,10 @@
 import "./App.css";
-import BaseView from "./views/BaseView";
+import Router from "./routes";
 
 function App() {
   return (
     <>
-      <BaseView />
+      <Router />
     </>
   );
 }
