@@ -8,20 +8,20 @@ function AuthService() {
   // Login endpoint
   const loginUrl = "http://localhost:3000/ateon-api/v1/auth/login";
 
-  const login = (data) => {
-    var success = false;
-    axios
+  const login = async (data) => {
+    var error = false;
+    await axios
       .post(loginUrl, data)
       .then((response) => {
         console.log("Respuesta del servidor:", response.data);
-        success = true;
         localStorage.setItem("accessToken", response.data.accessToken);
         navigate("/");
       })
-      .catch((error) => {
-        console.error("Error al hacer la petición:", error);
+      .catch((err) => {
+        console.error("Error al hacer la petición:", err);
+        error = true;
       });
-    return success;
+    return error;
   };
 
   return {

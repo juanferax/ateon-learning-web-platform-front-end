@@ -6,9 +6,9 @@ import ChatIcon from "../assets/images/icons/icon_chats.svg?react";
 import CoursesIcon from "../assets/images/icons/icon_courses.svg?react";
 import ScheduleIcon from "../assets/images/icons/icon_schedule.svg?react";
 import NotificationIcon from "../assets/images/icons/icon_notification.svg?react";
-import UnfoldIcon from "../assets/images/icons/icon_unfold_light.svg?react";
-import defaultPfp from "../assets/images/default_pfp.png";
+
 import NavBarButton from "./NavBarButton";
+import ProfileMenu from "./ProfileMenu";
 
 function Header() {
   return (
@@ -33,20 +33,8 @@ function Header() {
       </div>
       {/* Profile */}
       <div className="flex items-center pb-[14px]">
-        <NotificationIcon fill="#6652FA" />
-        <div
-          className="circle-image ml-8 mr-3"
-          style={{
-            backgroundImage: `url(${defaultPfp})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
-            borderRadius: "50%",
-            height: 38,
-            width: 38,
-          }}
-        ></div>
-        <p className="pr-5 text-[#162A6E] font-semibold">John Doe.</p>
-        <UnfoldIcon fill="#6652FA" />
+        <NotificationIcon fill="#6652FA" className="mr-8" />
+        <ProfileMenu />
       </div>
     </div>
   );
