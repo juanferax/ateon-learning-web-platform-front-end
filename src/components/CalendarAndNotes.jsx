@@ -11,11 +11,14 @@ function CalendarAndNotes() {
   return (
     <div className="mx-5 w-[25%]">
       <div className="flex flex-col h-full">
-        <div className="flex flex-col justify-center">
-          <p className="font-semibold text-xl text-left text-[#162A6E] pb-3">
-            Calendar:
+        <div className="flex flex-col justify-center bg-[#F1F7FC] rounded-lg">
+          <p className="font-semibold text-lg text-left pb-2 pl-6 pt-3">
+            Calendar
           </p>
-          <div className="" style={{ marginBottom: -50, marginTop: -10 }}>
+          <div
+            // className="bg-[#F1F7FC] rounded-lg"
+            style={{ marginBottom: -40, marginTop: -10 }}
+          >
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateCalendar />
             </LocalizationProvider>

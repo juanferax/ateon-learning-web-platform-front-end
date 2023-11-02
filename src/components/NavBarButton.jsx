@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function NavBarButton({ section, icon: Icon }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="relative group/button">
+    <div
+      className="relative group/button"
+      onClick={() => navigate("/" + section.toLowerCase())}
+    >
       <div
         className="flex items-center justify-center rounded-lg group-hover/button:bg-[#DFF1FF] h-12"
         style={{ width: 150 }}

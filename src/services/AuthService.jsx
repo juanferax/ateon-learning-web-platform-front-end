@@ -15,7 +15,7 @@ function AuthService() {
       .then((response) => {
         console.log("Respuesta del servidor:", response.data);
         localStorage.setItem("accessToken", response.data.accessToken);
-        navigate("/");
+        navigate("/home");
       })
       .catch((err) => {
         console.error("Error al hacer la petición:", err);
