@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import BaseView from "../views/BaseView";
 import LoginPage from "../pages/LoginPage";
 import RequireAuth from "../components/RequireAuth";
 import SignupPage from "../pages/SignupPage";
-import CourseDetailsPage from "../pages/CourseDetailsPage";
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
       <Route
         path="/home"
         element={
