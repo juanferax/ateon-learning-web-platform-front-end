@@ -15,7 +15,7 @@ function TopicAccordion({ type, info }) {
 
     for (let i = 0; i < 30; i++) {
       circles.push(
-        <circle key={i} cx={i * 40 + 3} cy="3" r="3" fill="#6652FA55" />
+        <circle key={i} cx={i * 40 + 3} cy="3" r="3" fill="#6652FA80" />
       );
     }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import mascot from "../assets/images/ateon_mascot.png";
 import mascotFloor from "../assets/images/mascot_floor.svg";
 import ChatIcon from "../assets/images/icons/icon_chats.svg?react";
@@ -6,6 +6,8 @@ import CoursesIcon from "../assets/images/icons/icon_courses.svg?react";
 import ScheduleIcon from "../assets/images/icons/icon_schedule.svg?react";
 
 function HomePage() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div className="flex-grow">
       <div className="flex flex-col h-full">
@@ -26,7 +28,7 @@ function HomePage() {
             />
           </div>
           <div className="text-[#162A6E] flex-grow flex flex-col justify-center">
-            <p className="text-3xl">Good evening John.</p>
+            <p className="text-3xl">Good evening {user && user.name}.</p>
             <p className="text-4xl font-medium pt-4">11:30 p.m.</p>
             <p className="">Wednesday, October 27th 2023</p>
           </div>

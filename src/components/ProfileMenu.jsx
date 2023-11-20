@@ -13,6 +13,7 @@ import { Button } from "@mui/material";
 
 function ProfileMenu() {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -22,6 +23,7 @@ function ProfileMenu() {
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
@@ -50,7 +52,7 @@ function ProfileMenu() {
             openMenu ? "text-white" : ""
           }`}
         >
-          John Doe.
+          {user && user.name}
         </p>
         {openMenu ? (
           <FoldIcon fill="#6652FA" onClick={() => handleOpenMenu()} />
