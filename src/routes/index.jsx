@@ -41,6 +41,14 @@ const Router = () => (
           </RequireAuth>
         }
       />
+      <Route
+        path="/schedule"
+        element={
+          <RequireAuth>
+            <BaseView page="Schedule" />
+          </RequireAuth>
+        }
+      />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<SignupPage />} />
     </Routes>

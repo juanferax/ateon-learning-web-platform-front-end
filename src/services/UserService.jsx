@@ -4,6 +4,23 @@ function UserService() {
   // Users base endpoint
   const usersUrl = "http://localhost:3000/ateon-api/v1/users";
 
+  const findById = async (id) => {
+    const token = localStorage.getItem("accessToken");
+
+    try {
+      const response = await axios.get(`${usersUrl}/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log("Respuesta del servidor:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Error al hacer la petición:", error);
+    }
+  };
+
   const saveNote = async (note) => {
     const token = localStorage.getItem("accessToken");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -17,7 +34,8 @@ function UserService() {
         },
       });
 
-      console.log("Respuesta del servidor:", response.data);
+      console.log("Respuesta del servidor save note:", response.data);
+      localStorage.setItem("user", JSON.stringify(response.data));
       return response.data;
     } catch (error) {
       console.error("Error al hacer la petición:", error);
@@ -25,6 +43,7 @@ function UserService() {
   };
 
   return {
+    findById,
     saveNote,
   };
 }

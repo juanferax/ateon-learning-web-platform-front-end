@@ -4,11 +4,13 @@ import ateonChat from "../assets/images/ateon_chat.png";
 import SearchIcon from "../assets/images/icons/icon_search.svg?react";
 
 function ChatsPage() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
-    <div className="flex flex-row h-full mb-3">
+    <div className="flex-grow flex flex-row h-full mb-3">
       {/* Chats List */}
-      <div className="mx-5 w-[25%]">
-        <div className="bg-[#F1F7FC] rounded-lg h-full text-left p-5">
+      <div className="mx-5 w-[20%]">
+        <div className="bg-[#F1F7FC] rounded-lg h-full text-left p-5 overflow-hidden">
           <p className="text-[#162A6E] font-semibold text-2xl">Chats</p>
           <div className="mt-5 flex p-1.5 px-3 border border-[#162A6E] rounded-lg">
             <SearchIcon />
@@ -38,7 +40,7 @@ function ChatsPage() {
               alt="Ateon mascot chat"
               style={{ height: 229, width: 248 }}
             />
-            <p className="text-3xl font-semibold pt-5">Hey, John Doe</p>
+            <p className="text-3xl font-semibold pt-5">Hey, {user.name}</p>
             <p className="w-[55%] pt-10">
               Communicating with mates and teachers makes everything better. For
               startes tap any chat if you want to see the messages.

@@ -25,7 +25,7 @@ function NoteAccordion({ info }) {
         </span>
       </div>
       {isOpen && (
-        <div className="p-2">
+        <div className="px-2 pt-2">
           {info.notes.map((note, idx) => {
             return (
               <div key={idx} className="flex items-center">

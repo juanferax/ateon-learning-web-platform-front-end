@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import emptyLogo from "../assets/images/ateon_logo_empty.svg";
 import SendIcon from "../assets/images/icons/icon_send.svg?react";
 import DownloadIcon from "../assets/images/icons/icon_download.svg?react";
@@ -16,31 +16,6 @@ function Notes() {
 
   const [note, setNote] = useState("");
   const [noteGroup, setNoteGroup] = useState("");
-
-  const handleChange = (event) => {
-    setNote(event.target.value);
-  };
-
-  const handleGroupChange = (group) => {
-    setNoteGroup(group ? group.value : "");
-  };
-
-  const saveNote = () => {
-    let noteData = {
-      groupName: noteGroup,
-      newNote: note,
-    };
-    userService.saveNote(noteData);
-  };
-
-  //   const fetchNotes = async () => {
-  //     const userNotes = await studentService.getStudentNotes();
-  //     setNotes(userNotes);
-  //   };
-
-  //   useEffect(() => {
-  //     fetchNotes();
-  //   }, []);
 
   // Modal
   const [open, setOpen] = React.useState(false);
@@ -60,16 +35,42 @@ function Notes() {
     p: 4,
   };
 
+  const handleChange = (event) => {
+    setNote(event.target.value);
+  };
+
+  const handleGroupChange = (group) => {
+    setNoteGroup(group ? group.value : "");
+  };
+
+  const saveNote = async () => {
+    let noteData = {
+      groupName: noteGroup,
+      newNote: note,
+    };
+    await userService.saveNote(noteData);
+    setNote("");
+    setNoteGroup("");
+    handleClose();
+  };
+
+  useEffect(() => {}, []);
+
   return (
     <div className="h-full flex flex-col">
       <p className="font-semibold text-xl text-left text-[#162A6E] pb-3">
         Notes:
       </p>
       <div className="flex flex-col h-full">
-        <div className="bg-[#F1F7FC] rounded-t-lg h-full">
+        <div className="bg-[#F1F7FC] rounded-t-lg h-full overflow-y-scroll">
           {notes ? (
             notes.map((noteGroup, idx) => {
-              return <NoteAccordion key={idx} info={noteGroup} />;
+              return (
+                <>
+                  <NoteAccordion key={idx} info={noteGroup} />
+                  <hr className="border-[#8AC4FA] mx-5" />
+                </>
+              );
             })
           ) : (
             <div className="flex flex-col items-center justify-center h-full">

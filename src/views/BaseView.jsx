@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import ChatsPage from "../pages/ChatsPage";
 import CoursesPage from "../pages/CoursesPage";
 import CourseDetailsPage from "../pages/CourseDetailsPage";
+import SchedulePage from "../pages/SchedulePage";
 import QuickAccess from "../components/QuickAccess";
 import CalendarAndNotes from "../components/CalendarAndNotes";
 
@@ -16,6 +17,8 @@ function BaseView({ page, lateralSections = true }) {
         return <CourseDetailsPage />;
       case "Chats":
         return <ChatsPage />;
+      case "Schedule":
+        return <SchedulePage />;
       default:
         return <HomePage />;
     }
