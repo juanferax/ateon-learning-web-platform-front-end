@@ -38,8 +38,26 @@ function StudentService() {
     }
   };
 
+  const getStudentSchedule = async () => {
+    const token = localStorage.getItem("accessToken");
+
+    try {
+      const response = await axios.get(`${studentsUrl}/schedules`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log("Respuesta del servidor:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Error al hacer la petición:", error);
+    }
+  };
+
   return {
     getStudentCourses,
+    getStudentSchedule,
   };
 }
 

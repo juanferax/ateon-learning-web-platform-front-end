@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import emptyLogo from "../assets/images/ateon_logo_empty.svg";
 import SendIcon from "../assets/images/icons/icon_send.svg?react";
 import DownloadIcon from "../assets/images/icons/icon_download.svg?react";
@@ -54,8 +54,6 @@ function Notes() {
     handleClose();
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div className="h-full flex flex-col">
       <p className="font-semibold text-xl text-left text-[#162A6E] pb-3">
@@ -66,10 +64,10 @@ function Notes() {
           {notes ? (
             notes.map((noteGroup, idx) => {
               return (
-                <>
-                  <NoteAccordion key={idx} info={noteGroup} />
+                <div key={idx}>
+                  <NoteAccordion info={noteGroup} />
                   <hr className="border-[#8AC4FA] mx-5" />
-                </>
+                </div>
               );
             })
           ) : (
