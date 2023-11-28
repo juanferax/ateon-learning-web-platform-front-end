@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import TeacherIcon from "../assets/images/icons/icon_teacher.svg?react";
 import ParticipantsIcon from "../assets/images/icons/icon_participants.svg?react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CourseVideoCard from "../components/CourseVideoCard";
 import CourseService from "../services/CourseService";
 import ModuleAccordion from "../components/ModuleAccordion";
+import SettingsIcon from "../assets/images/icons/icon_settings.svg?react";
 
 function CourseDetailsPage() {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [course, setCourseDetails] = useState(null);
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const courseService = CourseService();
 
@@ -29,7 +34,19 @@ function CourseDetailsPage() {
     <>
       {course && (
         <div className="flex-grow text-left">
-          <p className="font-semibold text-2xl pb-3">{course.name}</p>
+          <div className="flex pb-3">
+            <p className="font-semibold text-2xl pr-4">{course.name}</p>
+            {user && user.role === "professor" && (
+              <div
+                className="flex bg-[#6652FA] py-1 px-2 rounded-lg items-center cursor-pointer"
+                onClick={() => navigate(`/courses/${course._id}/manage`)}
+              >
+                <p className="text-white mr-2">Manage course</p>
+                <SettingsIcon />
+              </div>
+            )}
+          </div>
+
           <div className="flex justify-between font-medium text-[#162A6E]">
             <div className="flex items-center">
               <p className="pr-2">Teacher: {course.professor.name}</p>
@@ -67,13 +84,6 @@ function CourseDetailsPage() {
                   <CourseVideoCard key={idx} video={{ title: video.title }} />
                 );
               })}
-
-              {/* <CourseVideoCard video={{ title: "Test video 2" }} />
-              <CourseVideoCard video={{ title: "Test video 3" }} />
-              <CourseVideoCard video={{ title: "Test video 4" }} />
-              <CourseVideoCard video={{ title: "Test video 5" }} />
-              <CourseVideoCard video={{ title: "Test video 6" }} />
-              <CourseVideoCard video={{ title: "Test video 7" }} /> */}
             </div>
           </div>
           {/* Modules content */}

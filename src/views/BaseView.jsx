@@ -7,6 +7,8 @@ import CourseDetailsPage from "../pages/CourseDetailsPage";
 import SchedulePage from "../pages/SchedulePage";
 import QuickAccess from "../components/QuickAccess";
 import CalendarAndNotes from "../components/CalendarAndNotes";
+import CourseManagementPage from "../pages/CourseManagementPage";
+import CourseStatsPage from "../pages/CourseStatsPage";
 
 function BaseView({ page, lateralSections = true }) {
   const renderPage = () => {
@@ -15,6 +17,10 @@ function BaseView({ page, lateralSections = true }) {
         return <CoursesPage />;
       case "Course details":
         return <CourseDetailsPage />;
+      case "Course management":
+        return <CourseManagementPage />;
+      case "Course stats":
+        return <CourseStatsPage />;
       case "Chats":
         return <ChatsPage />;
       case "Schedule":

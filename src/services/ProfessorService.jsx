@@ -1,14 +1,14 @@
 import axios from "axios";
 
-function CourseService() {
-  // Courses base endpoint
-  const coursesUrl = "http://localhost:3000/ateon-api/v1/courses";
+function ProfessorService() {
+  // Students base endpoint
+  const professorsUrl = "http://localhost:3000/ateon-api/v1/professors";
 
-  const findById = async (id) => {
+  const getProfessorCourses = async () => {
     const token = localStorage.getItem("accessToken");
 
     try {
-      const response = await axios.get(`${coursesUrl}/${id}`, {
+      const response = await axios.get(`${professorsUrl}/courses`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -21,11 +21,11 @@ function CourseService() {
     }
   };
 
-  const getCourseMetrics = async (id) => {
+  const getProfessorSchedule = async () => {
     const token = localStorage.getItem("accessToken");
 
     try {
-      const response = await axios.get(`${coursesUrl}/${id}/metrics`, {
+      const response = await axios.get(`${professorsUrl}/schedules`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,9 +39,9 @@ function CourseService() {
   };
 
   return {
-    findById,
-    getCourseMetrics,
+    getProfessorCourses,
+    getProfessorSchedule,
   };
 }
 
-export default CourseService;
+export default ProfessorService;

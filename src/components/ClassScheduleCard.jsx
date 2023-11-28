@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-function CourseScheduleCard(courseInfo) {
+function ClassScheduleCard({ classInfo }) {
   return (
     <div className="py-4">
       <TableContainer className="border rounded-lg">
@@ -32,9 +32,11 @@ function CourseScheduleCard(courseInfo) {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                Linear algebra
+                {classInfo.courseName}
               </TableCell>
-              <TableCell align="left">7:00am - 10:00am</TableCell>
+              <TableCell align="left">
+                {classInfo.startHour} - {classInfo.endHour}
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -43,4 +45,4 @@ function CourseScheduleCard(courseInfo) {
   );
 }
 
-export default CourseScheduleCard;
+export default ClassScheduleCard;

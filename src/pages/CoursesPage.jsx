@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from "react";
 import StudentService from "../services/StudentService";
+import ProfessorService from "../services/ProfessorService";
 import CourseCard from "../components/CourseCard";
 
 function CoursesPage() {
   const studentService = StudentService();
+  const professorService = ProfessorService();
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [courses, setCourses] = useState(null);
 
-  const fetchCourses = async () => {
+  const fetchStudentCourses = async () => {
     const coursesDetails = await studentService.getStudentCourses();
     setCourses(coursesDetails);
   };
 
+  const fetchProfessorCourses = async () => {
+    const coursesDetails = await professorService.getProfessorCourses();
+    setCourses(coursesDetails);
+  };
+
   useEffect(() => {
-    fetchCourses();
+    if (user && user.role === "student") {
+      fetchStudentCourses();
+    } else if (user && user.role === "professor") {
+      fetchProfessorCourses();
+    }
   }, []);
 
   return (

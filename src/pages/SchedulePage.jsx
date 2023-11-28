@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import StudentService from "../services/StudentService";
 import { format } from "date-fns";
-import CourseScheduleCard from "../components/CourseScheduleCard";
+import ClassScheduleCard from "../components/ClassScheduleCard";
 
 function SchedulePage() {
   const studentService = StudentService();
@@ -31,12 +31,20 @@ function SchedulePage() {
         <p>Finished classes</p>
         <hr className="border-[#162A6E] flex-grow ml-3 border-opacity-70" />
       </div>
-      <CourseScheduleCard />
+      {schedule &&
+        schedule.finishedClasses &&
+        schedule.finishedClasses.map((finishedClass, idx) => {
+          return <ClassScheduleCard key={idx} classInfo={finishedClass} />;
+        })}
       <div className="flex items-center pt-5">
         <p>Incoming classes</p>
         <hr className="border-[#162A6E] flex-grow ml-3 border-opacity-70" />
       </div>
-      <CourseScheduleCard />
+      {schedule &&
+        schedule.incomingClasses &&
+        schedule.incomingClasses.map((incomingClass, idx) => {
+          return <ClassScheduleCard key={idx} classInfo={incomingClass} />;
+        })}
     </div>
   );
 }

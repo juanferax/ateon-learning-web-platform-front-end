@@ -34,6 +34,22 @@ const Router = () => (
         }
       />
       <Route
+        path="/courses/:id/manage"
+        element={
+          <RequireAuth>
+            <BaseView page="Course management" />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/courses/:id/manage/stats"
+        element={
+          <RequireAuth>
+            <BaseView page="Course stats" />
+          </RequireAuth>
+        }
+      />
+      <Route
         path="/chats"
         element={
           <RequireAuth>
