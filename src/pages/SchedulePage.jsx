@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import StudentService from "../services/StudentService";
+import ProfessorService from "../services/ProfessorService";
 import { format } from "date-fns";
 import ClassScheduleCard from "../components/ClassScheduleCard";
 
 function SchedulePage() {
   const studentService = StudentService();
+  const professorService = ProfessorService();
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const [schedule, setSchedule] = useState(null);
 
@@ -13,13 +17,22 @@ function SchedulePage() {
   // Formatear la fecha en el formato deseado
   const formattedDate = format(today, "MMMM dd 'of' yyyy");
 
-  const fetchSchedule = async () => {
+  const fetchStudentSchedule = async () => {
     const scheduleDetails = await studentService.getStudentSchedule();
     setSchedule(scheduleDetails);
   };
 
+  const fetchProfessorSchedule = async () => {
+    const scheduleDetails = await professorService.getProfessorSchedule();
+    setSchedule(scheduleDetails);
+  };
+
   useEffect(() => {
-    fetchSchedule();
+    if (user && user.role === "student") {
+      fetchStudentSchedule();
+    } else if (user && user.role === "professor") {
+      fetchProfessorSchedule();
+    }
   }, []);
 
   return (
