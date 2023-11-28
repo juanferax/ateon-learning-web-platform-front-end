@@ -24,6 +24,7 @@ function ProfileMenu() {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");
+    localStorage.removeItem("lastVisitedCourse");
     navigate("/login");
   };
 

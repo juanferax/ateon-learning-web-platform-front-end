@@ -5,7 +5,8 @@ function AuthService() {
   const navigate = useNavigate();
 
   // Auth endpoint
-  const authUrl = "http://localhost:3000/ateon-api/v1/auth";
+  const authUrl =
+    "https://ateon-api-back-end-production.up.railway.app/ateon-api/v1/auth";
 
   const login = async (data) => {
     var error = false;

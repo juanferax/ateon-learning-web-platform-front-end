@@ -2,7 +2,8 @@ import axios from "axios";
 
 function UserService() {
   // Users base endpoint
-  const usersUrl = "http://localhost:3000/ateon-api/v1/users";
+  const usersUrl =
+    "https://ateon-api-back-end-production.up.railway.app/ateon-api/v1/users";
 
   const findById = async (id) => {
     const token = localStorage.getItem("accessToken");

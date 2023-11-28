@@ -2,7 +2,8 @@ import axios from "axios";
 
 function StudentService() {
   // Students base endpoint
-  const studentsUrl = "http://localhost:3000/ateon-api/v1/students";
+  const studentsUrl =
+    "https://ateon-api-back-end-production.up.railway.app/ateon-api/v1/students";
 
   //   const findById = async (id) => {
   //     const token = localStorage.getItem("accessToken");
