@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ateonLogo from "../assets/images/ateon_logo.png";
 import ateonText from "../assets/images/ateon_text.png";
 import HomeIcon from "../assets/images/icons/icon_home.svg?react";
@@ -11,6 +11,10 @@ import NavBarButton from "./NavBarButton";
 import ProfileMenu from "./ProfileMenu";
 
 function Header() {
+  const pathName = window.location.pathname;
+
+  const activeTab = pathName.split("/")[1];
+
   return (
     <div className="z-50 sticky top-0 w-full h-24 flex items-center justify-between px-7 mb-3 bg-white py-3">
       {/* Logo */}
@@ -21,10 +25,26 @@ function Header() {
       {/* Navigation Bar */}
       <div>
         <div className="flex items-center rounded-lg h-12 bg-[#F1F7FC]">
-          <NavBarButton section="Home" icon={HomeIcon} />
-          <NavBarButton section="Courses" icon={CoursesIcon} />
-          <NavBarButton section="Chats" icon={ChatIcon} />
-          <NavBarButton section="Schedule" icon={ScheduleIcon} />
+          <NavBarButton
+            section="Home"
+            icon={HomeIcon}
+            active={activeTab === "home"}
+          />
+          <NavBarButton
+            section="Courses"
+            icon={CoursesIcon}
+            active={activeTab === "courses"}
+          />
+          <NavBarButton
+            section="Chats"
+            icon={ChatIcon}
+            active={activeTab === "chats"}
+          />
+          <NavBarButton
+            section="Schedule"
+            icon={ScheduleIcon}
+            active={activeTab === "schedule"}
+          />
         </div>
         <div
           className="rounded-lg mt-2 bg-[#DBEAF8]"

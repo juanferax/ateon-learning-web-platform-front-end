@@ -56,7 +56,15 @@ function TopicAccordion({ type, info }) {
                 </span>
                 <div className="bg-[#F1F7FC] rounded-lg flex">
                   <p className="py-1 px-2 text-sm">status</p>
-                  <div className="w-6 bg-[#C1C1C1] rounded-r-lg"></div>
+                  <div
+                    className={`w-6 ${
+                      item.status === "completed"
+                        ? "bg-[#4BDDA8]"
+                        : item.status === "pending"
+                        ? "bg-[#C1C1C1]"
+                        : "bg-[#F4D35E]"
+                    } rounded-r-lg`}
+                  ></div>
                 </div>
               </div>
             );

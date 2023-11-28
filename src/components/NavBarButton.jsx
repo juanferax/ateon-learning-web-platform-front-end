@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function NavBarButton({ section, icon: Icon }) {
+function NavBarButton({ section, icon: Icon, active = false }) {
   const navigate = useNavigate();
 
   return (
@@ -17,7 +17,9 @@ function NavBarButton({ section, icon: Icon }) {
         <p className="font-medium text-[#6652FA]">{section}</p>
       </div>
       <div
-        className="absolute group-hover/button:bg-[#6652FA] mt-2 w-full rounded-lg"
+        className={`absolute group-hover/button:bg-[#6652FA] ${
+          active ? "bg-[#6652FA]" : ""
+        } mt-2 w-full rounded-lg`}
         style={{ height: 6 }}
       ></div>
     </div>

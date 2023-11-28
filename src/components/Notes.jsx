@@ -61,7 +61,7 @@ function Notes() {
       </p>
       <div className="flex flex-col h-full">
         <div className="bg-[#F1F7FC] rounded-t-lg h-full overflow-y-scroll">
-          {notes ? (
+          {notes && notes.length > 0 ? (
             notes.map((noteGroup, idx) => {
               return (
                 <div key={idx}>

@@ -21,6 +21,7 @@ function CourseDetailsPage() {
     try {
       const courseDetails = await courseService.findById(id);
       setCourseDetails(courseDetails);
+      localStorage.setItem("lastVisitedCourse", JSON.stringify(courseDetails));
     } catch (error) {
       console.error(error);
     }
