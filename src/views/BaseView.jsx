@@ -10,7 +10,7 @@ import CalendarAndNotes from "../components/CalendarAndNotes";
 import CourseManagementPage from "../pages/CourseManagementPage";
 import CourseStatsPage from "../pages/CourseStatsPage";
 
-function BaseView({ page, lateralSections = true }) {
+function BaseView({ page, lateralSections = true, date = null }) {
   const renderPage = () => {
     switch (page) {
       case "Courses":

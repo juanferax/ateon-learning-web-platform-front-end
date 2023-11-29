@@ -3,6 +3,7 @@ import StudentService from "../services/StudentService";
 import ProfessorService from "../services/ProfessorService";
 import { format } from "date-fns";
 import ClassScheduleCard from "../components/ClassScheduleCard";
+import { useParams } from "react-router-dom";
 
 function SchedulePage() {
   const studentService = StudentService();
@@ -10,20 +11,30 @@ function SchedulePage() {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const { date } = useParams();
+
   const [schedule, setSchedule] = useState(null);
 
-  const today = new Date();
+  const scheduleDate = date ? new Date(date * 1) : new Date();
 
   // Formatear la fecha en el formato deseado
-  const formattedDate = format(today, "MMMM dd 'of' yyyy");
+  const formattedDate = format(scheduleDate, "MMMM dd 'of' yyyy");
 
   const fetchStudentSchedule = async () => {
-    const scheduleDetails = await studentService.getStudentSchedule();
+    date ? console.log("Date!!") : console.log("No date!!");
+    console.log(date);
+    const scheduleDetails = date
+      ? await studentService.getStudentSchedule(date)
+      : await studentService.getStudentSchedule();
     setSchedule(scheduleDetails);
   };
 
   const fetchProfessorSchedule = async () => {
-    const scheduleDetails = await professorService.getProfessorSchedule();
+    date ? console.log("Date!!") : console.log("No date!!");
+    console.log(date);
+    const scheduleDetails = date
+      ? await professorService.getProfessorSchedule(date)
+      : await professorService.getProfessorSchedule();
     setSchedule(scheduleDetails);
   };
 
@@ -33,7 +44,7 @@ function SchedulePage() {
     } else if (user && user.role === "professor") {
       fetchProfessorSchedule();
     }
-  }, []);
+  }, [date]);
 
   return (
     <div className="flex-grow text-left">

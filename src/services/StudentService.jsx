@@ -39,15 +39,19 @@ function StudentService() {
     }
   };
 
-  const getStudentSchedule = async () => {
+  const getStudentSchedule = async (date = null) => {
     const token = localStorage.getItem("accessToken");
 
     try {
-      const response = await axios.get(`${studentsUrl}/schedules`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      const response = date
+        ? await axios.get(`${studentsUrl}/schedules/${date}`, {
+            headers: headers,
+          })
+        : await axios.get(`${studentsUrl}/schedules`, { headers: headers });
 
       console.log("Respuesta del servidor:", response.data);
       return response.data;

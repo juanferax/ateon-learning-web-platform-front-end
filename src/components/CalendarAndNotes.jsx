@@ -4,8 +4,16 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import Notes from "./Notes";
+import { useNavigate } from "react-router-dom";
 
 function CalendarAndNotes() {
+  const navigate = useNavigate();
+
+  const handleCalendarChange = (newDate) => {
+    const milliseconds = newDate.$d.getTime();
+    navigate(`/schedule/${milliseconds}`);
+  };
+
   return (
     <div className="mx-5 w-[25%]">
       <div className="flex flex-col h-full">
@@ -18,7 +26,9 @@ function CalendarAndNotes() {
             style={{ marginBottom: -40, marginTop: -10 }}
           >
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateCalendar />
+              <DateCalendar
+                onChange={(newValue) => handleCalendarChange(newValue)}
+              />
             </LocalizationProvider>
           </div>
         </div>
