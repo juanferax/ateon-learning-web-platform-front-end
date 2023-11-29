@@ -119,7 +119,7 @@ function HomePage() {
             </div>
             <div>
               <p className="text-2xl text-[#4938CE] font-medium">Schedule</p>
-              {schedule && schedule.incomingClasses ? (
+              {schedule && schedule.incomingClasses.length > 0 ? (
                 <div className="text-lg pt-1 flex">
                   <p className="font-medium">Next class:</p>&nbsp;
                   {schedule.incomingClasses[0].courseName} at{" "}

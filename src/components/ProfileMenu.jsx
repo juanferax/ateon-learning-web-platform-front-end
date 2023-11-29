@@ -38,7 +38,9 @@ function ProfileMenu() {
         <div
           className="circle-image mr-3"
           style={{
-            backgroundImage: `url(${defaultPfp})`,
+            backgroundImage: `url(${
+              user.profilePhotoURL ? user.profilePhotoURL : defaultPfp
+            })`,
             backgroundSize: "cover",
             backgroundPosition: "center center",
             borderRadius: "50%",

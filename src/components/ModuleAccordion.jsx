@@ -33,7 +33,7 @@ function ModuleAccordion({ info }) {
               <div key={idx} className="pt-5">
                 <p className="text-lg font-semibold">{topic.name}</p>
                 <TopicAccordion type="Resources" info={topic.resources} />
-                <TopicAccordion type="Deliverables" info={topic.resources} />
+                <TopicAccordion type="Deliverables" info={topic.deliverables} />
               </div>
             );
           })}

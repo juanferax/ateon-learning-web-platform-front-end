@@ -48,7 +48,7 @@ function TopicAccordion({ type, info }) {
           {info.map((item, idx) => {
             return (
               <div key={idx} className="flex items-center justify-between">
-                <p>{item.text}</p>
+                <p>{type === "Resources" ? item.text : item.name}</p>
                 <span className="overflow-hidden flex-1 mx-3">
                   <svg width="100%" height="8">
                     {renderCircles()}
